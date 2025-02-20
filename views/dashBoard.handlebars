@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    .main{
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(139, 131, 131);
+        display: flex;
+        flex-direction: column;
+
+    }
+    .navbar{
+        width: 100%;
+        height: 10vh;
+        background-color: rgb(218, 203, 203);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5vw;
+    }
+    .data{
+        display: flex;
+        gap: 2vw;
+    }
+    .navbar .data a{
+        padding: 0.8vw 2vw ; 
+        background-color: green;
+         border-radius: 5px; 
+         font-size: 1vw;
+          text-decoration: none;
+           color: white;
+          
+    }
+    .container{
+        width: 100%;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        overflow-y: scroll;
+    }
+    .container ul{
+        width: 100%;
+        height: auto;
+        {{!-- background-color: red; --}}
+        padding: 0 2vw;
+    }
+    .container li{
+        width: 100%;
+        height: auto;
+        {{!-- background-color: aqua; --}}
+        margin-bottom: 1vw;
+        border-radius: 5%;
+    }
+    button{
+        padding: 0.7vw 1.5vw;
+        background-color: green;
+        border-radius: 5%;
+        margin: 2vw;
+    }
+  
+</style>
+<body>
+    <div class="main">
+       <div class="navbar">
+        <h1>HackerKernel</h1>
+        <div class="data">
+          <a  href="/createuser">Add User</a>
+          <a href="/addtask">Assign Task</a>
+        <a href="/">Home</a>
+
+        </div>
+       </div>
+
+       <div class="container">
+        <h2>Users & Tasks</h2>
+<ul>
+  {{#each users}}
+    <li>{{name}} ({{email}}) - <a href="/api/task/{{id}}">View Tasks</a></li>
+  {{/each}}
+</ul>
+
+<button onclick="window.location.href='/export'">Export to Excel</button>
+       
+       </div>
+
+    </div>
+</body>
+</html>
