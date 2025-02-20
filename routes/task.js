@@ -14,10 +14,14 @@ router.post('/create', async (req, res) => {
 
 //  Tasks by User ID
 router.get('/:user_id', async (req, res) => {
-    const tasks = await Task.query().where('user_id', req.params.user_id);
-    res.json(tasks);
-  });
-
+  try {
+      const tasks = await Task.query().where('user_id', req.params.user_id);
+      res.render("tasks", { tasks });
+  } catch (error) {
+      console.error("Error fetching tasks:", error);
+      res.status(500).send("Internal Server Error");
+  }
+});
 
 
 

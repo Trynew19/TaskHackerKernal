@@ -1,14 +1,15 @@
 
 Task managment Application
 
-first of all git clone that add .env file and fill this data :- 
-PORT = 
-MYSQL_HOST = 
-USER =  
-PASSWORD = 
-CLIENT = 
-DB_NAME = 
+first of all git clone that add .env file and fill this data :- ;
 
-npm i
+PORT = 5000;
+MYSQL_HOST = 127.0.0.1;
+USER =  root;
+PASSWORD = xyz@12345;
+CLIENT = mysql2;
+DB_NAME = taskDb;
 
-npm start or nodemon
+npm i;
+
+npm start or nodemon;
